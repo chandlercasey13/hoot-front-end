@@ -1,5 +1,5 @@
-import { AuthedUserContext } from '../../App';
-import { useContext } from 'react';
+import { AuthedUserContext } from "../../App";
+import { useContext } from "react";
 
 const Dashboard = ({}) => {
   const user = useContext(AuthedUserContext);

@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import * as authService from '../../services/authService';
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import * as authService from "../../services/authService";
 
 const SigninForm = (props) => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState(['']);
+  const [message, setMessage] = useState([""]);
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const updateMessage = (msg) => {
@@ -15,7 +15,7 @@ const SigninForm = (props) => {
   };
 
   const handleChange = (e) => {
-    updateMessage('');
+    updateMessage("");
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -25,7 +25,7 @@ const SigninForm = (props) => {
       const user = await authService.signin(formData);
       console.log(user);
       props.setUser(user);
-      navigate('/');
+      navigate("/");
     } catch (err) {
       updateMessage(err.message);
     }
